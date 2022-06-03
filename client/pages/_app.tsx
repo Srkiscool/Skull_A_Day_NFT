@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import React from 'react'
 import { SWRConfig } from 'swr'
 import { IProviderOptions } from 'web3modal'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const SUPPORTED_NETWORKS: NetworkConfig = {
   '0x1': {
@@ -69,30 +70,32 @@ const DEFAULT_CHAIN_ID = '0x539' // Used to switch to if the user is on an unsup
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.StrictMode>
-      <WalletProvider
-        web3modalOptions={web3modalOptions}
-        networks={SUPPORTED_NETWORKS}
-        // Optional if you want to auto switch the network
-        defaultChainId={DEFAULT_CHAIN_ID}
-        // Optional but useful to handle events.
-        handleModalEvents={(eventName, error) => {
-          if (error) {
-            console.error(error.message)
-          }
+      <ChakraProvider>
+        <WalletProvider
+          web3modalOptions={web3modalOptions}
+          networks={SUPPORTED_NETWORKS}
+          // Optional if you want to auto switch the network
+          defaultChainId={DEFAULT_CHAIN_ID}
+          // Optional but useful to handle events.
+          handleModalEvents={(eventName, error) => {
+            if (error) {
+              console.error(error.message)
+            }
 
-          console.log(eventName)
-        }}
-      >
-        <SWRConfig
-          value={{
-            fetcher: fetch,
-            shouldRetryOnError: false,
-            revalidateOnFocus: false,
+            console.log(eventName)
           }}
         >
-          <Component {...pageProps} />
-        </SWRConfig>
-      </WalletProvider>
+          <SWRConfig
+            value={{
+              fetcher: fetch,
+              shouldRetryOnError: false,
+              revalidateOnFocus: false,
+            }}
+          >
+            <Component {...pageProps} />
+          </SWRConfig>
+        </WalletProvider>
+      </ChakraProvider>
     </React.StrictMode>
   )
 }

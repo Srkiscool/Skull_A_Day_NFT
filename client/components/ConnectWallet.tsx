@@ -1,3 +1,4 @@
+import { Button } from '@chakra-ui/react'
 import { useWallet } from '@raidguild/quiver'
 import { FC } from 'react'
 
@@ -8,7 +9,7 @@ export const ConnectWallet: FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <>
       {!isConnected && (
-        <button
+        <Button
           id="button"
           disabled={isConnecting}
           onClick={() => !isConnected && connectWallet()}
@@ -18,12 +19,12 @@ export const ConnectWallet: FC<React.PropsWithChildren<unknown>> = () => {
             : isConnected
             ? 'Connected'
             : 'Connect'}
-        </button>
+        </Button>
       )}
       {isConnected && (
         <div>
           <div>{formatAddress(address)}</div>
-          <button onClick={() => disconnect()}>Disconnect</button>
+          <Button onClick={() => disconnect()}>Disconnect</Button>
         </div>
       )}
     </>
