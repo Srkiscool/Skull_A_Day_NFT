@@ -6,6 +6,8 @@ import React from 'react'
 import { SWRConfig } from 'swr'
 import { IProviderOptions } from 'web3modal'
 import { ChakraProvider } from '@chakra-ui/react'
+import { theme } from '../utils/theme'
+import Fonts from '../components/Fonts'
 
 const SUPPORTED_NETWORKS: NetworkConfig = {
   '0x1': {
@@ -28,20 +30,6 @@ const SUPPORTED_NETWORKS: NetworkConfig = {
     symbol: 'ETH',
     explorer: 'http://localhost:1234',
     rpc: 'http://localhost:8545',
-  },
-  '0x89': {
-    chainId: '0x89',
-    name: 'Polygon',
-    symbol: 'MATIC',
-    explorer: 'https://polygonscan.com',
-    rpc: 'https://polygon-rpc.com/',
-  },
-  '0x13881': {
-    chainId: '0x13881',
-    name: 'Mumbai Testnet',
-    symbol: 'MATIC',
-    explorer: 'https://mumbai.polygonscan.com',
-    rpc: 'https://matic-mumbai.chainstacklabs.com',
   },
 }
 
@@ -70,7 +58,8 @@ const DEFAULT_CHAIN_ID = '0x539' // Used to switch to if the user is on an unsup
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.StrictMode>
-      <ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <Fonts />
         <WalletProvider
           web3modalOptions={web3modalOptions}
           networks={SUPPORTED_NETWORKS}
