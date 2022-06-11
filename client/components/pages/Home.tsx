@@ -6,25 +6,18 @@ import {
   Flex,
   Heading,
   HStack,
-  Image,
   Text,
   VStack,
-  Wrap,
 } from '@chakra-ui/react'
-import { useReadContract, useTypedContract } from '@raidguild/quiver'
 import Script from 'next/script'
 import { FC } from 'react'
-import { Inbox__factory } from '../../types/typechain'
 import { SkullMinter } from '../SkullMinter'
 import { MainBox } from '../ui/MainBox'
-
+import NextImage from 'next/image'
+import webaward from '../../public/images/webaward.png'
+import { Team } from '../Team'
 const Iframe = chakra('iframe')
 export const Home: FC<React.PropsWithChildren<unknown>> = () => {
-  const { contract } = useTypedContract(
-    '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-    Inbox__factory
-  )
-  const { response: message } = useReadContract(contract, 'message', [])
   return (
     <Flex
       bgImage={'/images/largerepeattile.png'}
@@ -33,8 +26,8 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
       direction="column"
     >
       <Box minH="10" bg="brand.gray" borderBottom="2px solid black">
-        <MainBox h="full">
-          <HStack wrap="wrap" h="full" px="16" w="full" bg="brand.gray">
+        <MainBox minH="10">
+          <HStack wrap="wrap" minH="10" px="16" w="full" bg="brand.gray">
             <Text as="span">
               The OG Daily Skull Project by Noah Scalin Founded in 2007
             </Text>
@@ -117,33 +110,7 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
               </Box>
               <Divider color="white" />
               <Text>TEAM</Text>
-              <Wrap spacing="4">
-                <Box>
-                  <Image bg="white" h="120px" w="120px" />
-                  <Text color="brand.neon">NOAH SCALIN</Text>
-                  <Text>Artist/Founder</Text>
-                </Box>
-                <Box>
-                  <Image bg="white" h="120px" w="120px" />
-                  <Text color="brand.neon">NOAH SCALIN</Text>
-                  <Text>Artist/Founder</Text>
-                </Box>
-                <Box>
-                  <Image bg="white" h="120px" w="120px" />
-                  <Text color="brand.neon">NOAH SCALIN</Text>
-                  <Text>Artist/Founder</Text>
-                </Box>
-                <Box>
-                  <Image bg="white" h="120px" w="120px" />
-                  <Text color="brand.neon">NOAH SCALIN</Text>
-                  <Text>Artist/Founder</Text>
-                </Box>
-                <Box>
-                  <Image bg="white" h="120px" w="120px" />
-                  <Text color="brand.neon">NOAH SCALIN</Text>
-                  <Text>Artist/Founder</Text>
-                </Box>
-              </Wrap>
+              <Team />
               <Box>
                 <Text as="span">LABELS: </Text>
                 <Text as="span" color="brand.neon">
@@ -151,74 +118,187 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                 </Text>
               </Box>
             </VStack>
-            <VStack alignItems="flex-start">
+            <VStack fontSize="sm" alignItems="flex-start">
+              <NextImage
+                width="150px"
+                height="150px"
+                src={webaward}
+              ></NextImage>
               <Divider />
               <Text>BLOG ARCHIVE</Text>
               <Box>
-                <Text color="brand.neon">▼ 2008 (597)</Text>
+                <Text cursor="pointer" color="brand.neon">
+                  ▼ 2008 (597)
+                </Text>
                 <Box pl="4">
-                  <Text color="brand.neon">► December (55)</Text>
-                  <Text color="brand.neon">► November (38)</Text>
-                  <Text color="brand.neon">► October (69)</Text>
-                  <Text color="brand.neon">► September (40)</Text>
-                  <Text color="brand.neon">► August (39)</Text>
-                  <Text color="brand.neon">► July (54)</Text>
-                  <Text color="brand.neon">► June (65)</Text>
-                  <Text color="brand.neon">► May (60)</Text>
-                  <Text color="brand.neon">► April (44)</Text>
-                  <Text color="brand.neon">► March (37)</Text>
-                  <Text color="brand.neon">► February (53)</Text>
-                  <Text color="brand.neon">► January (43)</Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► December (55)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► November (38)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► October (69)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► September (40)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► August (39)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► July (54)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► June (65)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► May (60)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► April (44)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► March (37)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► February (53)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► January (43)
+                  </Text>
                 </Box>
               </Box>
               <Box>
-                <Text color="brand.neon">▼ 2007 (306)</Text>
+                <Text cursor="pointer" color="brand.neon">
+                  ▼ 2007 (306)
+                </Text>
                 <Box pl="4">
-                  <Text color="brand.neon">► December (42)</Text>
-                  <Text color="brand.neon">► November (46)</Text>
-                  <Text color="brand.neon">► October (46)</Text>
-                  <Text color="brand.neon">► September (46)</Text>
-                  <Text color="brand.neon">► August (43)</Text>
-                  <Text color="brand.neon">► July (41)</Text>
-                  <Text color="brand.neon">► June (42)</Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► December (42)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► November (46)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► October (46)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► September (46)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► August (43)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► July (41)
+                  </Text>
+                  <Text cursor="pointer" color="brand.neon">
+                    ► June (42)
+                  </Text>
                 </Box>
               </Box>
               <Divider />
               <Text>BLOG ROLL</Text>
               <Box>
-                <Text color="brand.neon">365 Masks</Text>
-                <Text color="brand.neon">All The Cool Geeks</Text>
-                <Text color="brand.neon">Amblus</Text>
-                <Text color="brand.neon">Another Limited Rebellion</Text>
-                <Text color="brand.neon">b13fotographica</Text>
-                <Text color="brand.neon">Bent Objects</Text>
-                <Text color="brand.neon">Daily Monster</Text>
-                <Text color="brand.neon">Designers Skulls blog</Text>
-                <Text color="brand.neon">Djoulz</Text>
-                <Text color="brand.neon">Face Metal Design</Text>
-                <Text color="brand.neon">Frankenstein's Fun House</Text>
-                <Text color="brand.neon">GirlMonsters</Text>
-                <Text color="brand.neon">Home of The Skulls</Text>
-                <Text color="brand.neon">I Want Your Skull</Text>
-                <Text color="brand.neon">In The New</Text>
-                <Text color="brand.neon">Micawave</Text>
-                <Text color="brand.neon">Micrograve Designs</Text>
-                <Text color="brand.neon">mim4art</Text>
-                <Text color="brand.neon">My Precious Studio</Text>
-                <Text color="brand.neon">News from Bwlchyrhyd</Text>
-                <Text color="brand.neon">Now What?</Text>
-                <Text color="brand.neon">Pearson Metal Art</Text>
-                <Text color="brand.neon">Skull and Crossbones</Text>
-                <Text color="brand.neon">Skulls and Bacon</Text>
-                <Text color="brand.neon">Stencils & Pochoirs</Text>
-                <Text color="brand.neon">Suspect and Fugitive</Text>
-                <Text color="brand.neon">Team 8 Press</Text>
-                <Text color="brand.neon">The Blog Blog</Text>
-                <Text color="brand.neon">The Jambox</Text>
-                <Text color="brand.neon">This Young House</Text>
-                <Text color="brand.neon">Tiki Chris Presents</Text>
-                <Text color="brand.neon">Trailers From Hell</Text>
-                <Text color="brand.neon">Will.Love.Logic</Text>
+                <Text cursor="pointer" color="brand.neon">
+                  365 Masks
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  All The Cool Geeks
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Amblus
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Another Limited Rebellion
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  b13fotographica
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Bent Objects
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Daily Monster
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Designers Skulls blog
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Djoulz
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Face Metal Design
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Frankenstein's Fun House
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  GirlMonsters
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Home of The Skulls
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  I Want Your Skull
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  In The New
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Micawave
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Micrograve Designs
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  mim4art
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  My Precious Studio
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  News from Bwlchyrhyd
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Now What?
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Pearson Metal Art
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Skull and Crossbones
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Skulls and Bacon
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Stencils & Pochoirs
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Suspect and Fugitive
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Team 8 Press
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  The Blog Blog
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  The Jambox
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  This Young House
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Tiki Chris Presents
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Trailers From Hell
+                </Text>
+                <Text cursor="pointer" color="brand.neon">
+                  Will.Love.Logic
+                </Text>
               </Box>
             </VStack>
           </HStack>
