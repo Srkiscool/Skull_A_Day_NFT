@@ -4,6 +4,7 @@ pragma solidity ^0.8.4;
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
+import '@openzeppelin/contracts/utils/Strings.sol'; 
 
 contract MintContract is ERC721URIStorage, Ownable, ReentrancyGuard {
     uint256 public mintPrice = 0.1 ether;
@@ -40,17 +41,24 @@ contract MintContract is ERC721URIStorage, Ownable, ReentrancyGuard {
         return "ipfs://";
     }
 
-    function mint(uint256 _tokenId, string memory _tokenURI) external payable {
+    function mint(uint256 _amount) payable external nonReentrant {
         require (isMintEnabled, 'minting not enabled');
         require (mintedWallets[msg.sender] < MAX_WALLET_LIMIT, 'exceeds max per wallet');
         require (msg.value == mintPrice, 'wrong value');
         require (maxSupply > totalSupply, 'sold out');
+        
+        string memory tokenURI;
+        uint256 _tokenId;
 
-        mintedWallets[msg.sender]++;
-        totalSupply++;
-        uint256 tokenId = totalSupply;
-        _safeMint(msg.sender, tokenId);
-        _setTokenURI(_tokenId, _tokenURI);
+        for (uint256 i; i < _amount; i++) {
+            
+            mintedWallets[msg.sender]++;
+            totalSupply++;
+            _tokenId = totalSupply;
+            tokenURI = string(abi.encodePacked(ipfsMetadataHash, "/", Strings.toString(_tokenId)));
+            _safeMint(msg.sender, _tokenId);
+            _setTokenURI(_tokenId, tokenURI);
+        }
     }
 
     /**
