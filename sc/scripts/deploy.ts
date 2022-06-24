@@ -14,8 +14,8 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Inbox = await hre.ethers.getContractFactory('Inbox')
-  const inbox = await Inbox.deploy('Hello, Hardhat!')
+  const Inbox = await hre.ethers.getContractFactory('MintContract')
+  const inbox = await Inbox.deploy()
 
   await inbox.deployed()
 
