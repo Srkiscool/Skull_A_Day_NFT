@@ -19,6 +19,12 @@ import skullSvg from '../public/images/skull.svg'
 export const MintModal = ({ isOpen, onClose }) => {
   const [amount, setAmount] = useState(1)
 
+  const handleNumberChange = (value) => {
+    if (Number.isNaN(value)) setAmount(undefined)
+    else if (value > 0 && value <= 3) setAmount(value)
+    else setAmount(amount)
+  }
+
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
@@ -41,13 +47,13 @@ export const MintModal = ({ isOpen, onClose }) => {
             </Flex>
             <Flex gap="8" flex="1" direction="column">
               <Box>
-                <Text>Select Amount</Text>
+                <Text>Select Amount (Max 3)</Text>
                 <NumberInput
                   pt="3"
                   min={1}
                   max={3}
-                  value={amount}
-                  onChange={(_, value) => setAmount(value)}
+                  value={amount ? amount : ''}
+                  onChange={(_, value) => handleNumberChange(value)}
                   w="20"
                 >
                   <NumberInputField

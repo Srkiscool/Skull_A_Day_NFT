@@ -20,7 +20,7 @@ import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 import type { TypedEventFilter, TypedEvent, TypedListener } from "./common";
 
-interface MintContractInterface extends ethers.utils.Interface {
+interface SkullADayInterface extends ethers.utils.Interface {
   functions: {
     "MAX_WALLET_LIMIT()": FunctionFragment;
     "approve(address,uint256)": FunctionFragment;
@@ -237,7 +237,7 @@ export type TransferEvent = TypedEvent<
   [string, string, BigNumber] & { from: string; to: string; tokenId: BigNumber }
 >;
 
-export class MintContract extends BaseContract {
+export class SkullADay extends BaseContract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -278,7 +278,7 @@ export class MintContract extends BaseContract {
     toBlock?: string | number | undefined
   ): Promise<Array<TypedEvent<EventArgsArray & EventArgsObject>>>;
 
-  interface: MintContractInterface;
+  interface: SkullADayInterface;
 
   functions: {
     MAX_WALLET_LIMIT(overrides?: CallOverrides): Promise<[BigNumber]>;
