@@ -37,7 +37,7 @@ import { SkullADay__factory } from '../types/typechain'
 export const MintModal = ({ isOpen, onClose }) => {
   const toast = useToast()
 
-  const { isConnected, address, chainId, connectWallet } = useWallet()
+  const { isConnected, address, chainId } = useWallet()
 
   const MAX_MINT = 3
 
@@ -183,12 +183,6 @@ export const MintModal = ({ isOpen, onClose }) => {
                   }}
                 >
                   SKULL ME!
-                </Button>
-              )}
-
-              {totalRemaining?.gt(0) && !isConnected && (
-                <Button className="w-64" onClick={connectWallet}>
-                  CONNECT
                 </Button>
               )}
 

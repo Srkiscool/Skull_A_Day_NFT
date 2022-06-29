@@ -1,4 +1,5 @@
 import { Button, Flex, useDisclosure } from '@chakra-ui/react'
+import { useWallet } from '@raidguild/quiver'
 import NextImage from 'next/image'
 import { useEffect, useState } from 'react'
 import redSkullSvg from '../public/images/redskull.svg'
@@ -8,6 +9,7 @@ import { MintModal } from './MintModal'
 export const SkullMinter = () => {
   const [redIndex, setRedIndex] = useState(0)
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isConnected, connectWallet } = useWallet()
 
   // change redIndex every 300ms to animate the red skull
   useEffect(() => {
@@ -36,7 +38,14 @@ export const SkullMinter = () => {
           ></NextImage>
         ))}
       </Flex>
-      <Button onClick={onOpen}>MINT-A-SKULL</Button>
+      {!isConnected ? (
+        <Button className="w-64" onClick={connectWallet}>
+          CONNECT
+        </Button>
+      ) : (
+        <Button onClick={onOpen}>MINT-A-SKULL</Button>
+      )}
+
       <Flex
         justifyContent={{ base: 'center' }}
         w={{ base: 'full', md: 'fit-content', lg: 'fit-content' }}
