@@ -57,7 +57,7 @@ export const MintModal = ({ isOpen, onClose }) => {
       autoUpdateInterval: 5000,
     }
   )
-  const totalRemaining = BigNumber.from(MAX_SUPPLY + 1).sub(
+  const totalRemaining = BigNumber.from(MAX_SUPPLY).sub(
     nextTokenId ? nextTokenId.add(1) : BigNumber.from(0)
   )
   const maxMint = totalRemaining?.lte(MAX_MINT)
@@ -209,10 +209,10 @@ export const MintModal = ({ isOpen, onClose }) => {
               )}
 
               {totalRemaining?.eq(0) ? (
-                <div className="text-lg"> All goats are sold out</div>
+                <div className="text-lg"> All skulls are sold out</div>
               ) : (
                 <div className="text-lg">
-                  Only {totalRemaining?.toNumber()} of {MAX_SUPPLY} goats
+                  Only {totalRemaining?.toNumber()} of {MAX_SUPPLY} skulls
                   remain.
                 </div>
               )}
