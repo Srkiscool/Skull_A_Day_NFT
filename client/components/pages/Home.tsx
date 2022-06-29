@@ -12,7 +12,7 @@ import { FC } from 'react'
 import { SkullMinter } from '../SkullMinter'
 import { MainBox } from '../ui/MainBox'
 import NextImage from 'next/image'
-import webaward from '../../public/images/webaward.png'
+import webby from '../../public/images/webby.png'
 import skullSvg from '../../public/images/skull.svg'
 import logo from '../../public/images/logo.png'
 import { Team } from '../Team'
@@ -135,11 +135,7 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
               fontSize="sm"
               alignItems="flex-start"
             >
-              <NextImage
-                width="150px"
-                height="150px"
-                src={webaward}
-              ></NextImage>
+              <NextImage width="150px" height="150px" src={webby}></NextImage>
               <Divider />
               <Text>BLOG ARCHIVE</Text>
               <Box>

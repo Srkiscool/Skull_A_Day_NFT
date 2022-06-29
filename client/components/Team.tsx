@@ -36,7 +36,7 @@ const PERSONS = [
       'Software Engineer with a passion for basketball and making the world a more decentralized place.',
   },
   {
-    name: 'KELSEA DVORK',
+    name: 'KELSEA DVORAK',
     title: 'Illustrator',
     image: kelsea,
     description:
