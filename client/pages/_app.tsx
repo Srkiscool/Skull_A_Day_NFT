@@ -10,9 +10,9 @@ import { theme } from '../utils/theme'
 import Fonts from '../components/Fonts'
 import { BigNumber } from 'ethers'
 
-export const DEFAULT_CHAIN_ID = '0x539' // Used to switch to if the user is on an unsupported network
+export const DEFAULT_CHAIN_ID = '0x4' // Used to switch to if the user is on an unsupported network
 export const SKULL_COST_WEI = BigNumber.from('100000000000000000')
-export const CONTRACT_ADDRESS = '0x5fbdb2315678afecb367f032d93f642f64180aa3'
+export const CONTRACT_ADDRESS = '0x24f0A256Ba2EdDb640691E49B724D2a690aeCda5'
 export const MAX_SUPPLY = 366
 
 export const SUPPORTED_NETWORKS: NetworkConfig = {
