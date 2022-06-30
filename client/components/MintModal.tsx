@@ -36,7 +36,7 @@ import { SkullADay__factory } from '../types/typechain'
 
 export const MintModal = ({ isOpen, onClose }) => {
   const toast = useToast()
-
+  const [loading, setLoading] = useState(false)
   const { isConnected, address, chainId } = useWallet()
 
   const MAX_MINT = 3
@@ -58,11 +58,12 @@ export const MintModal = ({ isOpen, onClose }) => {
     }
   )
   const totalRemaining = BigNumber.from(MAX_SUPPLY).sub(
-    nextTokenId ? nextTokenId.add(1) : BigNumber.from(0)
+    nextTokenId ? nextTokenId : BigNumber.from(0)
   )
   const maxMint = totalRemaining?.lte(MAX_MINT)
     ? totalRemaining?.toNumber()
     : MAX_MINT
+
   const { response: priceAmount } = useReadContract(contract, 'mintPrice', [])
   // Update the mint amount if the total remaining changes.
   useEffect(() => {
@@ -76,6 +77,7 @@ export const MintModal = ({ isOpen, onClose }) => {
       status: 'success',
       description: 'Your skulls will be available on opensea in a few minutes.',
     })
+    setLoading(false)
   }
 
   const handleMint = async (response: ContractTransaction) => {
@@ -89,6 +91,7 @@ export const MintModal = ({ isOpen, onClose }) => {
       description: parseTxErrorMessage(error),
     })
     console.log(error)
+    setLoading(false)
   }
 
   const { mutate: mint } = useWriteContract(contract, 'mint', {
@@ -155,8 +158,11 @@ export const MintModal = ({ isOpen, onClose }) => {
               {totalRemaining?.gt(0) && isConnected && !txHash && (
                 <Button
                   className="w-64"
+                  isLoading={loading}
+                  loadingText="Minting..."
                   onClick={async () => {
                     try {
+                      setLoading(true)
                       setTxHash('')
                       await validateBeforeWriting(address, chainId)
                       const estimatedGas = await contract!.estimateGas.mint(
@@ -178,6 +184,7 @@ export const MintModal = ({ isOpen, onClose }) => {
                       })
                       console.log(e)
                     } finally {
+                      setLoading(false)
                       setTxHash('')
                     }
                   }}

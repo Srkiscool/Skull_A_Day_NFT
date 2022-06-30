@@ -6,11 +6,9 @@ import redSkullSvg from '../public/images/redskull.svg'
 import skullSvg from '../public/images/skull.svg'
 import { MintModal } from './MintModal'
 
-export const SkullMinter = () => {
-  const [redIndex, setRedIndex] = useState(0)
-  const { isOpen, onOpen, onClose } = useDisclosure()
+const RotatingSkull = ({ onOpen }) => {
   const { isConnected, connectWallet } = useWallet()
-
+  const [redIndex, setRedIndex] = useState(0)
   // change redIndex every 300ms to animate the red skull
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,14 +17,7 @@ export const SkullMinter = () => {
     return () => clearInterval(interval)
   })
   return (
-    <Flex
-      w="full"
-      justifyContent="center"
-      alignItems="center"
-      wrap="wrap"
-      gap="4"
-      py="4"
-    >
+    <>
       <Flex
         justifyContent={{ base: 'center' }}
         w={{ base: 'full', md: 'fit-content', lg: 'fit-content' }}
@@ -57,7 +48,25 @@ export const SkullMinter = () => {
           ></NextImage>
         ))}
       </Flex>
-      <MintModal isOpen={isOpen} onClose={onClose} />
+    </>
+  )
+}
+
+export const SkullMinter = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  return (
+    <Flex
+      w="full"
+      justifyContent="center"
+      alignItems="center"
+      wrap="wrap"
+      gap="4"
+      py="4"
+    >
+      <RotatingSkull onOpen={onOpen} />
+
+      {isOpen && <MintModal isOpen={isOpen} onClose={onClose} />}
     </Flex>
   )
 }
