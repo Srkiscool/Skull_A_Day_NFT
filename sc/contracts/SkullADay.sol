@@ -19,7 +19,7 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
 
   // fill this in!!
   address payable _SkullTreasuryAddress =
-    payable(0x8Eb4E89eE45B50a44738330Aa5B4dD572F86EBEB);
+    payable(0xA7B3E098C65C5E79d8Fa82d5040d49532C428833);
 
   mapping(address => uint256) public mintedWallets;
 
