@@ -65,6 +65,14 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
     }
   }
 
+   /**
+   * @notice Withdraws funds from contract.
+   */
+  function withdrawFunds() external onlyOwner {
+      uint256 balance = address(this).balance;
+      payable(_SkullTreasuryAddress).transfer(balance);
+  }
+
   /**
    * @notice See {IERC2981-royaltyInfo}.
    */
