@@ -4,18 +4,19 @@ import {
   chakra,
   Divider,
   Flex,
-  Heading,
   HStack,
   Text,
-  VStack,
 } from '@chakra-ui/react'
 import Script from 'next/script'
 import { FC } from 'react'
 import { SkullMinter } from '../SkullMinter'
 import { MainBox } from '../ui/MainBox'
 import NextImage from 'next/image'
-import webaward from '../../public/images/webaward.png'
+import webby from '../../public/images/webby.png'
+import skullSvg from '../../public/images/skull.svg'
+import logo from '../../public/images/logo.png'
 import { Team } from '../Team'
+
 const Iframe = chakra('iframe')
 export const Home: FC<React.PropsWithChildren<unknown>> = () => {
   return (
@@ -24,46 +25,56 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
       bgRepeat="repeat"
       bgSize="620px 620px"
       direction="column"
+      bgColor="brand.gray"
     >
-      <Box minH="10" bg="brand.gray" borderBottom="2px solid black">
+      <Box
+        position="relative"
+        minH="10"
+        bg="brand.gray"
+        borderBottom="2px solid black"
+      >
+        <Flex
+          minH="10"
+          position="absolute"
+          top={[1, 0]}
+          display="inline-flex"
+          bg="black"
+          p="1"
+        >
+          <Flex display="inline-flex" bg="brand.gray" p="1" borderRadius="20%">
+            <NextImage height="10" width="20" src={skullSvg} />
+          </Flex>
+        </Flex>
         <MainBox minH="10">
-          <HStack wrap="wrap" minH="10" px="16" w="full" bg="brand.gray">
+          <HStack
+            wrap="wrap"
+            minH="10"
+            px={['4', '10']}
+            w="full"
+            bg="brand.gray"
+          >
             <Text as="span">
               The OG Daily Skull Project by Noah Scalin Founded in 2007
-            </Text>
-            <Text as="span" color="brand.neon">
-              ABOUT
-            </Text>
-            <Text as="span" color="brand.neon">
-              TEAM
             </Text>
           </HStack>
         </MainBox>
       </Box>
-      <MainBox bg="black">
-        <VStack px="14">
+      <MainBox py="4" bg="black">
+        <Flex direction="column" px={['4', '8']}>
           <Box>
-            <Heading
-              lineHeight={1}
-              fontSize={{
-                sm: '10vw',
-                md: '10vw',
-                lg: '10vw',
-                xl: '9xl',
-              }}
-              // fontSize="9vw"
-              color="brand.neon"
-              fontFamily="Skullphabet1"
-            >
-              Skull-A-Day
-            </Heading>
+            <NextImage src={logo}></NextImage>
             <Text>
               I made a skull every day for a year. You can now buy them all
               here...
             </Text>
           </Box>
-          <HStack alignItems="flex-start" gap="4" wrap="wrap">
-            <VStack flex="1" alignItems="flex-start">
+          <Flex alignItems="flex-start" gap="4" wrap="wrap">
+            <Flex
+              w={['100%', '100%', '78%', '78%']}
+              gap="2"
+              direction="column"
+              alignItems="flex-start"
+            >
               <Divider color="white" />
               <Text>SATURDAY, JUNE 4, 2022</Text>
               <Script src="https://player.vimeo.com/api/player.js" />
@@ -91,16 +102,15 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
               <Divider color="white" />
               <Text>ABOUT</Text>
               <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit
-                amet justo leo. Integer iaculis varius euismod. Vivamus pharetra
-                nisi et erat varius scelerisque. Nullam vitae fermentum dolor, a
-                consectetur risus. Aenean nec velit vel dolor vestibulum
-                sagittis. Etiam dapibus dolor nec turpis faucibus sollicitudin.
-                Proin mauris felis, eleifend a mi vel, placerat imperdiet diam.
-                Praesent ac ante gravida, condimentum elit id, ultricies tortor.
-                Etiam placerat feugiat felis, eget mattis lorem ultrices a.
-                Proin vulputate at leo in ultrices. Pellentesque molestie nunc
-                feugiat consectetur tristique.
+                On June 4, 2007 Noah Scalin launched the Skull-A-Day project.
+                This groundbreaking daily art project became a viral sensation
+                and created a massive community of creative sharing that
+                continues to make an impact 15 years later. Now for the first
+                time ever, the entire 366 daily skulls are available as an
+                exclusive NFT collection. Collectors will get to lay claim to
+                their very own one-of-a-kind skull image created by Noah during
+                his project and become part of his Team Art, which guarantees
+                you a free NFT from all future releases.
               </Text>
               <Box>
                 <Text as="span">LABELS: </Text>
@@ -117,13 +127,15 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                   BIOS
                 </Text>
               </Box>
-            </VStack>
-            <VStack fontSize="sm" alignItems="flex-start">
-              <NextImage
-                width="150px"
-                height="150px"
-                src={webaward}
-              ></NextImage>
+            </Flex>
+            <Flex
+              w={['100%', '100%', '18%', '18%']}
+              gap="2"
+              direction="column"
+              fontSize="sm"
+              alignItems="flex-start"
+            >
+              <NextImage width="150px" height="150px" src={webby}></NextImage>
               <Divider />
               <Text>BLOG ARCHIVE</Text>
               <Box>
@@ -300,9 +312,32 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                   Will.Love.Logic
                 </Text>
               </Box>
-            </VStack>
-          </HStack>
-        </VStack>
+            </Flex>
+          </Flex>
+          <Text>
+            <a
+              rel="license"
+              href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            >
+              <img
+                alt="Creative Commons License"
+                style={{ borderWidth: 0 }}
+                src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"
+              />
+            </a>
+          </Text>
+          <Text>
+            This work is licensed under a{' '}
+            <a
+              style={{ color: 'white' }}
+              rel="license"
+              href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            >
+              Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+              International License
+            </a>
+          </Text>
+        </Flex>
       </MainBox>
     </Flex>
   )

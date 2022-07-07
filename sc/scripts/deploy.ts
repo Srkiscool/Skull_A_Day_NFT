@@ -14,12 +14,12 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const Inbox = await hre.ethers.getContractFactory('SkullADay')
-  const inbox = await Inbox.deploy()
+  const MintContract = await hre.ethers.getContractFactory('SkullADay')
+  const mintContract = await MintContract.deploy()
 
-  await inbox.deployed()
+  await mintContract.deployed()
 
-  console.log('Greeter deployed to:', inbox.address)
+  console.log('SkullADay deployed to:', mintContract.address)
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -8,8 +8,14 @@ import { IProviderOptions } from 'web3modal'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '../utils/theme'
 import Fonts from '../components/Fonts'
+import { BigNumber } from 'ethers'
 
-const SUPPORTED_NETWORKS: NetworkConfig = {
+export const DEFAULT_CHAIN_ID = '0x4' // Used to switch to if the user is on an unsupported network
+export const SKULL_COST_WEI = BigNumber.from('100000000000000000')
+export const CONTRACT_ADDRESS = '0x24f0A256Ba2EdDb640691E49B724D2a690aeCda5'
+export const MAX_SUPPLY = 366
+
+export const SUPPORTED_NETWORKS: NetworkConfig = {
   '0x1': {
     chainId: '0x1',
     name: 'Mainnet',
@@ -53,8 +59,6 @@ const web3modalOptions = {
   theme: 'dark',
 }
 
-const DEFAULT_CHAIN_ID = '0x539' // Used to switch to if the user is on an unsupported network
-
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.StrictMode>
@@ -87,4 +91,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </ChakraProvider>
     </React.StrictMode>
   )
+}
+
+export const validateBeforeWriting = async (address: any, chainId: any) => {
+  if (!address) {
+    throw new Error('Please connect to the wallet before minting')
+  }
+
+  if (chainId !== DEFAULT_CHAIN_ID) {
+    throw new Error(
+      `You are not connected to the ${SUPPORTED_NETWORKS[DEFAULT_CHAIN_ID].name}`
+    )
+  }
 }
