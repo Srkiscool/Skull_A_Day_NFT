@@ -6,13 +6,16 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 import '@openzeppelin/contracts/security/ReentrancyGuard.sol';
 import '@openzeppelin/contracts/utils/Strings.sol'; 
 
-contract MintContract is ERC721URIStorage, Ownable, ReentrancyGuard {
+contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
     uint256 public mintPrice = 0.1 ether;
     uint256 public totalSupply;
     uint256 public maxSupply;
     bool public isMintEnabled;
 
     uint256 public MAX_WALLET_LIMIT = 3;
+
+    // Address of interface identifier for royalty standard
+    bytes4 private constant INTERFACE_ID_ERC2981 = 0x2a55205a;
 
     string private ipfsMetadataHash;
     address payable private _treasuryAddress;
@@ -24,6 +27,7 @@ contract MintContract is ERC721URIStorage, Ownable, ReentrancyGuard {
 
     constructor() payable ERC721('Skull a Day', 'SKULLADAY') {
         maxSupply = 366;
+	isMintEnabled = false;
     }
 
     function toggleIsMintEnabled() external onlyOwner {
@@ -38,13 +42,13 @@ contract MintContract is ERC721URIStorage, Ownable, ReentrancyGuard {
      * @notice See {ERC721-baseURI}.
      */
     function _baseURI() internal view virtual override returns (string memory) {
-        return "ipfs://";
+        return "ipfs://bafybeielyggl4daqz2ex42thnsai7boorbicr5p5vcxmgxe6fttieiasxy";
     }
 
     function mint(uint256 _amount) payable external nonReentrant {
         require (isMintEnabled, 'minting not enabled');
         require (mintedWallets[msg.sender] < MAX_WALLET_LIMIT, 'exceeds max per wallet');
-        require (msg.value == mintPrice, 'wrong value');
+        require (msg.value == (mintPrice*_amount), 'wrong value');
         require (maxSupply > totalSupply, 'sold out');
         
         string memory tokenURI;
