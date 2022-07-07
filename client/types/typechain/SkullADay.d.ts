@@ -47,6 +47,7 @@ interface SkullADayInterface extends ethers.utils.Interface {
     "totalSupply()": FunctionFragment;
     "transferFrom(address,address,uint256)": FunctionFragment;
     "transferOwnership(address)": FunctionFragment;
+    "withdrawFunds()": FunctionFragment;
   };
 
   encodeFunctionData(
@@ -128,6 +129,10 @@ interface SkullADayInterface extends ethers.utils.Interface {
     functionFragment: "transferOwnership",
     values: [string]
   ): string;
+  encodeFunctionData(
+    functionFragment: "withdrawFunds",
+    values?: undefined
+  ): string;
 
   decodeFunctionResult(
     functionFragment: "MAX_WALLET_LIMIT",
@@ -197,6 +202,10 @@ interface SkullADayInterface extends ethers.utils.Interface {
   ): Result;
   decodeFunctionResult(
     functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "withdrawFunds",
     data: BytesLike
   ): Result;
 
@@ -392,6 +401,10 @@ export class SkullADay extends BaseContract {
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
+
+    withdrawFunds(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
   };
 
   MAX_WALLET_LIMIT(overrides?: CallOverrides): Promise<BigNumber>;
@@ -497,6 +510,10 @@ export class SkullADay extends BaseContract {
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
+  withdrawFunds(
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   callStatic: {
     MAX_WALLET_LIMIT(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -593,6 +610,8 @@ export class SkullADay extends BaseContract {
       newOwner: string,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    withdrawFunds(overrides?: CallOverrides): Promise<void>;
   };
 
   filters: {
@@ -776,6 +795,10 @@ export class SkullADay extends BaseContract {
       newOwner: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
+
+    withdrawFunds(
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -891,6 +914,10 @@ export class SkullADay extends BaseContract {
 
     transferOwnership(
       newOwner: string,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    withdrawFunds(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
   };
