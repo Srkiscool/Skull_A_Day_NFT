@@ -1,5 +1,5 @@
 import hre from 'hardhat'
-const contract = '0x6B6C69AD428BF369cB73597688bBF18e7B9e3509'
+const contract = '0x407E7D3E269305644989E82206C08fB2996D78FD'
 
 async function main() {
   if (!contract) {
@@ -7,8 +7,8 @@ async function main() {
   }
 
   await hre.run('verify:verify', {
-    address: contract,
-    constructorArguments: ['Hello, Hardhat!'],
+    address: contract
+    // constructorArguments: ['Hello, Hardhat!'],
   })
 }
 
