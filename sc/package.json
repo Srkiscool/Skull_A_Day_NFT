@@ -9,8 +9,8 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "hardhat": "hardhat node",
-    "deploy": "hardhat run scripts/deploy.ts --network localhost",
-    "verify": "hardhat run scripts/verify.ts --network localhost"
+    "deploy": "hardhat run scripts/deploy.ts --network rinkeby",
+    "verify": "hardhat run scripts/verify.ts --network rinkeby"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
