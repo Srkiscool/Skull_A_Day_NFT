@@ -21,14 +21,14 @@ export const SUPPORTED_NETWORKS: NetworkConfig = {
     name: 'Mainnet',
     symbol: 'ETH',
     explorer: 'https://etherscan.io',
-    rpc: 'https://mainnet.infura.io/v3/<your infura project id>',
+    rpc: 'https://mainnet.infura.io/v3/d370d22545844a79bceed4ac3b4ba397',
   },
   '0x4': {
     chainId: '0x4',
     name: 'Rinkeby',
     symbol: 'ETH',
     explorer: 'https://rinkeby.etherscan.io',
-    rpc: 'https://rinkeby.infura.io/v3/<your infura project id>',
+    rpc: 'https://rinkeby.infura.io/v3/d370d22545844a79bceed4ac3b4ba397',
   },
   '0x539': {
     chainId: '0x539',
