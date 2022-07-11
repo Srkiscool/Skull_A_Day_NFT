@@ -12,7 +12,7 @@ import { BigNumber } from 'ethers'
 
 export const DEFAULT_CHAIN_ID = '0x4' // Used to switch to if the user is on an unsupported network
 export const SKULL_COST_WEI = BigNumber.from('100000000000000000')
-export const CONTRACT_ADDRESS = '0x462d04BEdcc8Ab1591458b273e87A9eF16fF5295'
+export const CONTRACT_ADDRESS = '0xDE5f45A2a372ACF3B71cEb5cEA33030973feC855'
 export const MAX_SUPPLY = 366
 
 export const SUPPORTED_NETWORKS: NetworkConfig = {
