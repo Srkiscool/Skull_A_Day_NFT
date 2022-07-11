@@ -39,7 +39,7 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
    * @notice See {ERC721-baseURI}.
    */
   function _baseURI() internal view virtual override returns (string memory) {
-    return 'ipfs://';
+    return 'ipfs://bafybeielyggl4daqz2ex42thnsai7boorbicr5p5vcxmgxe6fttieiasxy';
   }
 
   function mint(uint256 _amount) external payable nonReentrant {
