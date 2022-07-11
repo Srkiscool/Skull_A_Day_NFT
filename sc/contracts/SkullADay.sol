@@ -12,6 +12,7 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
   uint256 public maxSupply;
   bool public isMintEnabled;
 
+  receive() external payable {}
   uint256 public MAX_WALLET_LIMIT = 3;
 
   string private ipfsMetadataHash;
@@ -48,6 +49,7 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
       mintedWallets[msg.sender] < MAX_WALLET_LIMIT,
       'exceeds max per wallet'
     );
+    require(msg.value == mintPrice*_amount, 'wrong value');
     require(maxSupply > totalSupply, 'sold out');
 
     string memory tokenURI;
@@ -82,5 +84,9 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
   ) external view returns (address, uint256 royaltyAmount) {
     royaltyAmount = (_salePrice * 10) / 100;
     return (_SkullTreasuryAddress, royaltyAmount);
+  }
+
+  function getBalance() external view returns (uint256){
+    return payable(address(this)).balance;
   }
 }
