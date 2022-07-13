@@ -48,6 +48,7 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
       mintedWallets[msg.sender] < MAX_WALLET_LIMIT,
       'exceeds max per wallet'
     );
+    require(msg.value == mintPrice*_amount, 'wrong value');
     require(maxSupply > totalSupply, 'sold out');
 
     string memory tokenURI;
