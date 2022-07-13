@@ -1,5 +1,5 @@
 import hre from 'hardhat'
-const contract = '0x69692f14813B0cc8b8E875179e5C2Ef24d81268D'
+const contract = '0x71669fE0682E8Eb7388CFd9C4dF4D42Ede88e3EF'
 
 async function main() {
   if (!contract) {
