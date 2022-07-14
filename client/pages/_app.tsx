@@ -10,7 +10,7 @@ import { theme } from '../utils/theme'
 import Fonts from '../components/Fonts'
 import { BigNumber } from 'ethers'
 
-export const DEFAULT_CHAIN_ID = '0x4' // Used to switch to if the user is on an unsupported network
+export const DEFAULT_CHAIN_ID = '0x1' // Used to switch to if the user is on an unsupported network
 export const SKULL_COST_WEI = BigNumber.from('100000000000000000')
 export const CONTRACT_ADDRESS = '0x69692f14813B0cc8b8E875179e5C2Ef24d81268D'
 export const MAX_SUPPLY = 366
@@ -23,20 +23,20 @@ export const SUPPORTED_NETWORKS: NetworkConfig = {
     explorer: 'https://etherscan.io',
     rpc: 'https://mainnet.infura.io/v3/d370d22545844a79bceed4ac3b4ba397',
   },
-  '0x4': {
-    chainId: '0x4',
-    name: 'Rinkeby',
-    symbol: 'ETH',
-    explorer: 'https://rinkeby.etherscan.io',
-    rpc: 'https://rinkeby.infura.io/v3/d370d22545844a79bceed4ac3b4ba397',
-  },
-  '0x539': {
-    chainId: '0x539',
-    name: 'Hardhat',
-    symbol: 'ETH',
-    explorer: 'http://localhost:1234',
-    rpc: 'http://localhost:8545',
-  },
+  // '0x4': {
+  //   chainId: '0x4',
+  //   name: 'Rinkeby',
+  //   symbol: 'ETH',
+  //   explorer: 'https://rinkeby.etherscan.io',
+  //   rpc: 'https://rinkeby.infura.io/v3/d370d22545844a79bceed4ac3b4ba397',
+  // },
+  // '0x539': {
+  //   chainId: '0x539',
+  //   name: 'Hardhat',
+  //   symbol: 'ETH',
+  //   explorer: 'http://localhost:1234',
+  //   rpc: 'http://localhost:8545',
+  // },
 }
 
 const providerOptions: IProviderOptions = {
@@ -45,8 +45,8 @@ const providerOptions: IProviderOptions = {
     options: {
       rpc: {
         1: SUPPORTED_NETWORKS['0x1'].rpc,
-        4: SUPPORTED_NETWORKS['0x4'].rpc,
-        1337: SUPPORTED_NETWORKS['0x539'].rpc,
+        // 4: SUPPORTED_NETWORKS['0x4'].rpc,
+        // 1337: SUPPORTED_NETWORKS['0x539'].rpc,
       },
     },
   },
