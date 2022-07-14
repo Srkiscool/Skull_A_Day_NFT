@@ -26,7 +26,6 @@ interface SkullADayInterface extends ethers.utils.Interface {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
-    "getBalance()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
     "isMintEnabled()": FunctionFragment;
     "maxSupply()": FunctionFragment;
@@ -63,10 +62,6 @@ interface SkullADayInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "getApproved",
     values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getBalance",
-    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "isApprovedForAll",
@@ -149,7 +144,6 @@ interface SkullADayInterface extends ethers.utils.Interface {
     functionFragment: "getApproved",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "getBalance", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "isApprovedForAll",
     data: BytesLike
@@ -311,8 +305,6 @@ export class SkullADay extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
-    getBalance(overrides?: CallOverrides): Promise<[BigNumber]>;
-
     isApprovedForAll(
       owner: string,
       operator: string,
@@ -430,8 +422,6 @@ export class SkullADay extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
-  getBalance(overrides?: CallOverrides): Promise<BigNumber>;
-
   isApprovedForAll(
     owner: string,
     operator: string,
@@ -539,8 +529,6 @@ export class SkullADay extends BaseContract {
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
-
-    getBalance(overrides?: CallOverrides): Promise<BigNumber>;
 
     isApprovedForAll(
       owner: string,
@@ -714,8 +702,6 @@ export class SkullADay extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getBalance(overrides?: CallOverrides): Promise<BigNumber>;
-
     isApprovedForAll(
       owner: string,
       operator: string,
@@ -833,8 +819,6 @@ export class SkullADay extends BaseContract {
       tokenId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
-
-    getBalance(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     isApprovedForAll(
       owner: string,
