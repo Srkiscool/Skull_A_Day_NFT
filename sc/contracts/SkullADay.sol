@@ -85,8 +85,4 @@ contract SkullADay is ERC721URIStorage, Ownable, ReentrancyGuard {
     royaltyAmount = (_salePrice * 10) / 100;
     return (_SkullTreasuryAddress, royaltyAmount);
   }
-
-  function getBalance() external view returns (uint256){
-    return payable(address(this)).balance;
-  }
 }

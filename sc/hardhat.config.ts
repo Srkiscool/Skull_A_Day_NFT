@@ -23,7 +23,7 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {},
-    rinkeby: {
+    mainnet: {
       accounts: {
         mnemonic,
       },
