@@ -73,11 +73,10 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
               w={['100%', '100%', '78%', '78%']}
               gap="2"
               direction="column"
-              alignItems="flex-start"
             >
               <Divider color="white" />
               <Text>SATURDAY, JUNE 4, 2022</Text>
-              <Text style={{fontSize: 24}}>366 completely unique skulls created by Noah Scalin for the Skull-A-Day project!</Text>
+              <Text style={{fontSize: 24}}>366 completely unique skulls created by Noah Scalin!</Text>
               <Text style={{fontSize: 24}}>Watch the video below to see all of them!</Text>
               <Script src="https://player.vimeo.com/api/player.js" />
               <AspectRatio
@@ -100,11 +99,11 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                 </Text>
               </Box>
               <Divider color="white" />
-              <Text style={{textAlign: "center"}}>Skull A Day Mint is live!</Text>
-              <Text style={{textAlign: "center"}}>Press the connect button to mint</Text>
+                <Text style={{textAlign: 'center'}}>SKULL A DAY MINT IS LIVE!</Text>
+                <Text style={{textAlign: "center"}}>Press the connect button to mint</Text>
               <Divider color="white" />
               <SkullMinter />
-              <Text> style={{textAlign: "center"}} Mint price .1 ETH each</Text>
+              <Text style={{textAlign: "center", fontSize: 24}}> Mint price .1 ETH each</Text>
               <Divider color="white" />
               <Text>ABOUT</Text>
               <Text>
