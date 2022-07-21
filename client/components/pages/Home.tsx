@@ -54,7 +54,7 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
             bg="brand.gray"
           >
             <Text as="span">
-              The OG Daily Skull Project by Noah Scalin Founded in 2007
+              The OG Daily Skull Project by Noah Scalin Founded in 2007      View the collection on OpenSea **HREF HERE**
             </Text>
           </HStack>
         </MainBox>
@@ -63,9 +63,11 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
         <Flex direction="column" px={['4', '8']}>
           <Box>
             <NextImage src={logo}></NextImage>
-            <Text>
-              I made a skull every day for a year. You can now buy them all
-              here...
+            <Text style={{fontWeight: 'bold', fontSize: 14}}>
+              366 Unqiue Skulls by Noah Scalin! Watch the video to see them all! Minted in the order they were created!
+            </Text>
+            <Text style={{fontWeight: 'bold', fontSize: 8}}>
+            &nbsp;
             </Text>
           </Box>
           <Flex alignItems="flex-start" gap="4" wrap="wrap">
@@ -76,8 +78,6 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
             >
               <Divider color="white" />
               <Text>SATURDAY, JUNE 4, 2022</Text>
-              <Text style={{fontSize: 24}}>366 completely unique skulls created by Noah Scalin!</Text>
-              <Text style={{fontSize: 24}}>Watch the video below to see all of them!</Text>
               <Script src="https://player.vimeo.com/api/player.js" />
               <AspectRatio
                 border="1px solid"
@@ -99,11 +99,29 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                 </Text>
               </Box>
               <Divider color="white" />
-                <Text style={{textAlign: 'center'}}>SKULL A DAY MINT IS LIVE!</Text>
-                <Text style={{textAlign: "center"}}>Press the connect button to mint</Text>
-              <Divider color="white" />
+                <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 20}}>SKULL A DAY MINT IS LIVE!</Text>
+                <Text style={{textAlign: "center"}}>Click the connect button to mint</Text>
               <SkullMinter />
               <Text style={{textAlign: "center", fontSize: 24}}> Mint price .1 ETH each</Text>
+              <Text style={{textAlign: "center", fontWeight: 'bold'}}>
+                Follow the collection as it's minted on {' '}
+                <a
+                  style={{ color: 'red' }}
+                  rel=" Opensea"
+                  href="https://opensea.io/collection/skull-a-day"
+                >
+                OpenSea
+                </a>
+                !&nbsp;Follow Noah on {' '} 
+                <a
+                  style={{ color: 'red' }}
+                  rel=" twitter"
+                  href="https://twitter.com/NoahScalin"
+                > 
+                Twitter
+                </a>
+                !
+              </Text>
               <Divider color="white" />
               <Text>ABOUT</Text>
               <Text>
