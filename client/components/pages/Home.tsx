@@ -99,10 +99,9 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                 </Text>
               </Box>
               <Divider color="white" />
-                <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 20}}>SKULL A DAY MINT IS LIVE!</Text>
-                <Text style={{textAlign: "center"}}>Click the connect button to mint</Text>
+                <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 18}}>The Skull-A-Day Mint is Live! Click connect to mint...</Text>
               <SkullMinter />
-              <Text style={{textAlign: "center", fontSize: 24}}> Mint price .1 ETH each</Text>
+              <Text style={{textAlign: "center", fontSize: 16, fontWeight: 'bold', color: 'rgb(231, 245, 188)'}}> Mint price .1 ETH each</Text>
               <Text style={{textAlign: "center", fontWeight: 'bold'}}>
                 Follow the collection as it's minted on {' '}
                 <a
