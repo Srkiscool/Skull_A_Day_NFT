@@ -54,7 +54,7 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
             bg="brand.gray"
           >
             <Text as="span">
-              The OG Daily Skull Project by Noah Scalin Founded in 2007      View the collection on 
+              The OG Daily Skull Project by Noah Scalin Founded in 2007  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  View the collection on&nbsp;
               <a
                   style={{ color: 'white' }}
                   rel="OpenSea"
