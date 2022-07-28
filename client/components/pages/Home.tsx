@@ -54,7 +54,14 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
             bg="brand.gray"
           >
             <Text as="span">
-              The OG Daily Skull Project by Noah Scalin Founded in 2007      View the collection on OpenSea **HREF HERE**
+              The OG Daily Skull Project by Noah Scalin Founded in 2007      View the collection on 
+              <a
+                  style={{ color: 'white' }}
+                  rel="OpenSea"
+                  href="https://opensea.io/collection/skull-a-day"
+                > 
+                OpenSea
+                </a>
             </Text>
           </HStack>
         </MainBox>
@@ -106,7 +113,7 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                 Follow the collection as it's minted on {' '}
                 <a
                   style={{ color: 'red' }}
-                  rel=" Opensea"
+                  rel=" OpenSea"
                   href="https://opensea.io/collection/skull-a-day"
                 >
                 OpenSea
