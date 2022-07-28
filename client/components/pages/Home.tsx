@@ -54,7 +54,14 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
             bg="brand.gray"
           >
             <Text as="span">
-              The OG Daily Skull Project by Noah Scalin Founded in 2007
+              The OG Daily Skull Project by Noah Scalin Founded in 2007  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  View the collection on&nbsp;
+              <a
+                  style={{ color: 'white' }}
+                  rel="OpenSea"
+                  href="https://opensea.io/collection/skull-a-day"
+                > 
+                OpenSea
+                </a>
             </Text>
           </HStack>
         </MainBox>
@@ -63,9 +70,11 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
         <Flex direction="column" px={['4', '8']}>
           <Box>
             <NextImage src={logo}></NextImage>
-            <Text>
-              I made a skull every day for a year. You can now buy them all
-              here...
+            <Text style={{fontWeight: 'bold', fontSize: 14}}>
+              366 Unqiue Skulls by Noah Scalin! Watch the video to see them all! Minted in the order they were created!
+            </Text>
+            <Text style={{fontWeight: 'bold', fontSize: 8}}>
+            &nbsp;
             </Text>
           </Box>
           <Flex alignItems="flex-start" gap="4" wrap="wrap">
@@ -73,7 +82,6 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
               w={['100%', '100%', '78%', '78%']}
               gap="2"
               direction="column"
-              alignItems="flex-start"
             >
               <Divider color="white" />
               <Text>SATURDAY, JUNE 4, 2022</Text>
@@ -98,7 +106,28 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
                 </Text>
               </Box>
               <Divider color="white" />
+                <Text style={{textAlign: 'center', fontWeight: 'bold', fontSize: 18}}>The Skull-A-Day Mint is Live! Click connect to mint...</Text>
               <SkullMinter />
+              <Text style={{textAlign: "center", fontSize: 16, fontWeight: 'bold', color: 'rgb(231, 245, 188)'}}> Mint price .1 ETH each</Text>
+              <Text style={{textAlign: "center", fontWeight: 'bold'}}>
+                Follow the collection as it's minted on {' '}
+                <a
+                  style={{ color: 'red' }}
+                  rel=" OpenSea"
+                  href="https://opensea.io/collection/skull-a-day"
+                >
+                OpenSea
+                </a>
+                !&nbsp;Follow Noah on {' '} 
+                <a
+                  style={{ color: 'red' }}
+                  rel=" twitter"
+                  href="https://twitter.com/NoahScalin"
+                > 
+                Twitter
+                </a>
+                !
+              </Text>
               <Divider color="white" />
               <Text>ABOUT</Text>
               <Text>

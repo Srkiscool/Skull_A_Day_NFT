@@ -20,7 +20,7 @@ const RotatingSkull = ({ onOpen }) => {
     <>
       <Flex
         justifyContent={{ base: 'center' }}
-        w={{ base: 'full', md: 'fit-content', lg: 'fit-content' }}
+        w={{ base: 'full', md: 'fit-content', lg: 'fit-content'}}
       >
         {Array.from({ length: 5 }).map((_, i) => (
           <NextImage
@@ -62,7 +62,7 @@ export const SkullMinter = () => {
       alignItems="center"
       wrap="wrap"
       gap="4"
-      py="4"
+      py="1"
     >
       <RotatingSkull onOpen={onOpen} />
 
