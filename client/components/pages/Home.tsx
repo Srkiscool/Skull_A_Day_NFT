@@ -71,7 +71,7 @@ export const Home: FC<React.PropsWithChildren<unknown>> = () => {
           <Box>
             <NextImage src={logo}></NextImage>
             <Text style={{fontWeight: 'bold', fontSize: 14}}>
-              366 Unqiue Skulls by Noah Scalin! Watch the video to see them all! Minted in the order they were created!
+              366 Unique Skulls by Noah Scalin! Watch the video to see them all! Minted in the order they were created!
             </Text>
             <Text style={{fontWeight: 'bold', fontSize: 8}}>
             &nbsp;
